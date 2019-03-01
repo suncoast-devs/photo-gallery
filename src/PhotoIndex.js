@@ -1,6 +1,6 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import data from './photos.json'
+import React from "react";
+import { Link } from "react-router-dom";
+import data from "./photos.json";
 
 const PhotoIndex = ({ match: { params } }) => (
   <div className="container">
@@ -23,7 +23,7 @@ const PhotoIndex = ({ match: { params } }) => (
     <h4 className="subtitle">{data[params.category].description}</h4>
     <div className="columns is-multiline">
       {data[params.category].photos.map((photo, index) => (
-        <div class="column" key={index}>
+        <div class="column is-one-third" key={index}>
           <div className="card">
             <div className="card-content">
               <div className="card-image">
@@ -32,7 +32,9 @@ const PhotoIndex = ({ match: { params } }) => (
                     <img src={photo.imageURL} alt={photo.title} />
                   </Link>
                   <figcaption>
-                    <Link to={`/${params.category}/${index}`}>{photo.title}</Link>
+                    <Link to={`/${params.category}/${index}`}>
+                      {photo.title}
+                    </Link>
                   </figcaption>
                 </figure>
               </div>
@@ -43,6 +45,6 @@ const PhotoIndex = ({ match: { params } }) => (
       ))}
     </div>
   </div>
-)
+);
 
-export default PhotoIndex
+export default PhotoIndex;
